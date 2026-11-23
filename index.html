@@ -333,7 +333,7 @@ figure.scene-fig img{display:block;width:100%;height:auto;border-radius:12px;bor
 </nav>
 
 <!-- lab-cover -->
-<div class="cover"><figure><img src="assets/img/cover.webp" width="1920" height="1080" alt="연구실 토론장. 가운데 연단에 사회자 박사, 왼쪽 파란 책상에 찬성 팀 시아·모아·하루·주판봇, 오른쪽 주황 책상에 반대 팀 초파리와 X1·X2·X3가 앉아 있다."><figcaption>임시 표지(캐릭터 팩으로 조립). 정식 표지 지시문은 prompts/IMAGE_PROMPTS.md에 있습니다.</figcaption></figure></div>
+<div class="cover"><figure><img src="assets/img/cover.webp" width="1920" height="1080" alt="흰 연구실 토론장 픽셀아트. 가운데 보라 연단에서 박사가 사회를 보고, 왼쪽 파란 책상에 찬성 팀 시아·모아·하루·주판봇, 오른쪽 주황 책상에 반대 팀 초파리와 X1·X2·X3가 앉아 있다. 뒤 화이트보드에 막대그래프와 금 간 방패, 패치와 시험지가 붙어 있다."></figure></div>
 <!-- /lab-cover -->
 
 <main class="wrap">
@@ -389,7 +389,7 @@ figure.scene-fig img{display:block;width:100%;height:auto;border-radius:12px;bor
 <!-- ===== 도입: 두 사례 ===== -->
 <section class="level" id="cases">
   <div class="lvhead"><div class="no">0</div><div><h2>도입 — 토론의 출발점이 된 두 사례</h2><div class="tags"><span class="tag">사례 1: 시험지 패치 실험</span><span class="tag">사례 2: 네트워크로 막는 시험 보안</span></div></div></div>
-  
+  <figure class="scene-fig" id="scene-0"><img src="assets/scenes/sc_0.webp" width="1200" height="800" alt="스마트안경을 쓴 수험생이 시험지를 바라보고, 시험지 옆 작은 무늬 조각에 AI의 눈이 어지러워하는 픽셀아트 장면" loading="lazy" onerror="this.parentNode.style.display='none'"></figure>
   <div class="say" data-side="mod"><img src="assets/chars/doctor/E09.webp" alt="박사" loading="lazy"><div class="bub"><span class="nm doctor">박사<span class="side mod">사회</span></span><p>스마트안경이나 휴대폰으로 시험지를 찍어 AI에게 답을 묻는 부정행위가 걱정거리가 됐습니다. 이걸 막으려는 시도가 두 갈래로 나왔어요. 둘 다 <b>AI의 추론에 장벽을 세운다</b>는 점은 같지만, 장벽을 세우는 자리가 다릅니다. 먼저 두 사례를 보고 토론을 시작하겠습니다.</p></div></div>
 
   <figure class="ig" id="fig-0-1">
@@ -510,7 +510,7 @@ figure.scene-fig img{display:block;width:100%;height:auto;border-radius:12px;bor
 <!-- ===== 1장 ===== -->
 <section class="level" id="ch1">
   <div class="lvhead"><div class="no">1</div><div><h2>AI는 답을 어떻게 고르나 — 베이즈로 보는 '확신'과 장벽</h2><div class="tags"><span class="tag">방법: 베이즈 정리</span><span class="tag">일상: 의사의 진단</span><span class="tag">연결: 베이지안 통계학 해설 3회차</span></div></div></div>
-  
+  <figure class="scene-fig" id="scene-1"><img src="assets/scenes/sc_1.webp" width="1200" height="800" alt="박사가 커다란 저울의 오답 쪽 접시에 추를 하나 얹고 하루가 놀라는 픽셀아트 장면" loading="lazy" onerror="this.parentNode.style.display='none'"></figure>
   <div class="say" data-side="mod"><img src="assets/chars/doctor/E09.webp" alt="박사" loading="lazy"><div class="bub"><span class="nm doctor">박사<span class="side mod">사회</span></span><p>상황 하나를 보죠. 오지선다 문제의 도표 사진을 AI에게 보여 줍니다. AI는 다섯 답 가운데 하나를 고릅니다. 그런데 AI는 '정답'을 아는 걸까요, 아니면 '가장 그럴듯한 답'을 고르는 걸까요?</p></div></div>
   <div class="recap"><b>30초 복습 — 베이즈 정리:</b> 처음 믿음(사전확률) × 새 증거가 그 답과 얼마나 잘 맞는지, 곧 그럴듯함(가능도) → 새 믿음(사후확률). 계산 뒤에는 합이 100%가 되게 맞춥니다. 자세한 설명은 <a href="https://adminmrobo.github.io/bayesian-statistics-for-data-scientists/" target="_blank" rel="noopener">베이지안 통계학 해설</a>에 있습니다.</div>
 
@@ -642,7 +642,7 @@ figure.scene-fig img{display:block;width:100%;height:auto;border-radius:12px;bor
 <!-- ===== 2장 ===== -->
 <section class="level" id="ch2">
   <div class="lvhead"><div class="no">2</div><div><h2>적대적 예제 — 판단 경계 너머로 미는 작은 그림 조각</h2><div class="tags"><span class="tag">방법: 적대적 예제(FGSM 원리)</span><span class="tag">일상: 표지판 스티커</span><span class="tag">연결: 금융 적대적 데이터 해설</span></div></div></div>
-  
+  <figure class="scene-fig" id="scene-2"><img src="assets/scenes/sc_2.webp" width="1200" height="800" alt="작은 무늬 조각에 홀린 로봇 눈과, 그 옆에서 열쇠 꾸러미를 든 주판봇이 문 세 개 앞에 선 픽셀아트 장면" loading="lazy" onerror="this.parentNode.style.display='none'"></figure>
   <div class="say" data-side="mod"><img src="assets/chars/doctor/E07.webp" alt="박사" loading="lazy"><div class="bub"><span class="nm doctor">박사<span class="side mod">사회</span></span><p>1장에서 패치가 '오답 쪽 증거를 부풀린다'고 했죠. 그럼 그림 조각 하나가 어떻게 증거를 부풀릴까요? AI는 그림을 숫자로 바꾼 뒤, 그 숫자가 경계의 어느 쪽에 있는지로 답을 고릅니다.</p></div></div>
   <div class="recap"><b>30초 복습 — 적대적 예제:</b> 사람 눈에는 거의 같은 그림인데 AI의 판단만 바뀌도록 계산해 넣은 작은 변화입니다. 판다 사진에 미세한 무늬를 더하자 AI가 긴팔원숭이로 확신한 사례가 유명합니다(Goodfellow 외, 2015). 금융 쪽 사례는 <a href="https://adminmrobo.github.io/my_article_04_adversarial_finance_attack/" target="_blank" rel="noopener">금융 이상탐지 모델과 적대적 데이터 해설</a>에 있습니다.</div>
 
@@ -762,7 +762,7 @@ figure.scene-fig img{display:block;width:100%;height:auto;border-radius:12px;bor
 <!-- ===== 3장 ===== -->
 <section class="level" id="ch3">
   <div class="lvhead"><div class="no">3</div><div><h2>몰래 심은 지시 — 프롬프트 인젝션과 지시의 줄다리기</h2><div class="tags"><span class="tag">방법: 지시 우선순위(교육용 모형)</span><span class="tag">일상: 서류 속 메모</span></div></div></div>
-  
+  <figure class="scene-fig" id="scene-3"><img src="assets/scenes/sc_3.webp" width="1200" height="800" alt="하나로 이어진 지시 줄을 AI 회사·사용자·사진 속 글자가 줄다리기하는 픽셀아트 장면" loading="lazy" onerror="this.parentNode.style.display='none'"></figure>
   <div class="say" data-side="mod"><img src="assets/chars/doctor/E09.webp" alt="박사" loading="lazy"><div class="bub"><span class="nm doctor">박사<span class="side mod">사회</span></span><p>이번엔 그림이 아니라 글입니다. AI에게는 AI 회사의 지시, 사용자의 말, 사진 속 글자가 하나로 이어져 들어갑니다. 사진 속 글자가 명령처럼 작동한다면, 그건 누구의 지시일까요?</p></div></div>
   <div class="recap"><b>30초 복습 — 프롬프트 인젝션:</b> AI가 읽을 자료(웹 페이지, 메일, 사진) 속에 지시를 숨겨 AI의 동작을 바꾸는 기법입니다. 자료 속에 숨긴 경우를 간접 프롬프트 인젝션이라 부릅니다(Greshake 외, 2023). AI 회사들은 지시의 출처에 따라 우선순위를 두도록 AI를 훈련합니다(Wallace 외, 2024).</div>
 
@@ -870,7 +870,7 @@ figure.scene-fig img{display:block;width:100%;height:auto;border-radius:12px;bor
 <!-- ===== 4장 ===== -->
 <section class="level" id="ch4">
   <div class="lvhead"><div class="no">4</div><div><h2>수능 시험장 시연 — 장벽을 겹겹이 세우면</h2><div class="tags"><span class="tag">방법: 겹친 장벽의 확률(곱셈)</span><span class="tag">일상: 현관 잠금장치 여러 개</span><span class="tag">사례 1 + 사례 2</span></div></div></div>
-  
+  <figure class="scene-fig" id="scene-4"><img src="assets/scenes/sc_4.webp" width="1200" height="800" alt="시험장 입구에 패치 인쇄기, 안내판, 관문이 겹겹이 서 있고 감독관 박사가 지켜보는 픽셀아트 장면" loading="lazy" onerror="this.parentNode.style.display='none'"></figure>
   <div class="say" data-side="mod"><img src="assets/chars/doctor/E08.webp" alt="박사" loading="lazy"><div class="bub"><span class="nm doctor">박사<span class="side mod">사회</span></span><p>수능 날 아침이라고 해 봅시다. 감독관이 쓸 수 있는 장벽은 패치, 안내문, 네트워크 관문, 시험지마다 패치 바꾸기입니다. 공격하는 쪽은 공개 AI, 상용 앱, 암호화 통신을 씁니다. 어떤 조합이 정답이 새어 나갈 확률을 가장 낮출까요?</p></div></div>
 
   <div class="pair">
@@ -991,7 +991,7 @@ figure.scene-fig img{display:block;width:100%;height:auto;border-radius:12px;bor
 <!-- ===== 5장 ===== -->
 <section class="level" id="ch5">
   <div class="lvhead"><div class="no">5</div><div><h2>방해 기법이 방어가 될 때 — 입구에서 거르는 통계 장벽</h2><div class="tags"><span class="tag">방법: KS 검정</span><span class="tag">일상: 과일 상자 검수</span><span class="tag">연결: 안상선(2024) 금융 적대적 데이터 논문</span></div></div></div>
-  
+  <figure class="scene-fig" id="scene-5"><img src="assets/scenes/sc_5.webp" width="1200" height="800" alt="과수원 검수원이 된 하루가 사과 상자를 저울과 곡선판으로 검사하고 초파리가 의심스럽게 보는 픽셀아트 장면" loading="lazy" onerror="this.parentNode.style.display='none'"></figure>
   <div class="say" data-side="mod"><img src="assets/chars/doctor/E07.webp" alt="박사" loading="lazy"><div class="bub"><span class="nm doctor">박사<span class="side mod">사회</span></span><p>지금까지는 '남의 AI'를 방해하는 장벽이었습니다. 반대로, 누군가 <b>우리 AI</b>에 적대적 데이터를 섞어 넣을 때는요? 금융 이상거래 탐지 AI에 위장 거래를 8.1% 섞으면 어떤 모델은 사기를 하나도 못 잡았습니다.</p></div></div>
   <div class="recap"><b>30초 복습 — 금융 적대적 데이터 논문(안상선, 2024):</b> 적대적 데이터를 8.1% 넣자 LSTM 모델의 재현율(사기를 잡아낸 비율)이 0.00으로 떨어졌고, 랜덤 포레스트는 0.94를 지켰습니다. 입구에 통계 검정을 두자 KS 검정이 적대적 데이터의 94.59%를 걸렀습니다(T 검정 73.96%, F 검정 0.00%). 자세히는 <a href="https://adminmrobo.github.io/my_article_04_adversarial_finance_attack/" target="_blank" rel="noopener">해설 페이지</a>.</div>
 
@@ -1105,7 +1105,7 @@ figure.scene-fig img{display:block;width:100%;height:auto;border-radius:12px;bor
 <!-- ===== 6장 ===== -->
 <section class="level" id="ch6">
   <div class="lvhead"><div class="no">6</div><div><h2>최종 토론 — "방해는 나쁜가?"에 조건을 붙이면</h2><div class="tags"><span class="tag">대결: 찬성 4 vs 반대 4</span><span class="tag">사회: 박사</span></div></div></div>
-  
+  <figure class="scene-fig" id="scene-6"><img src="assets/scenes/sc_6.webp" width="1200" height="800" alt="토론이 끝나고 찬성 팀과 반대 팀이 가운데서 악수하고 박사가 응원하는 픽셀아트 장면" loading="lazy" onerror="this.parentNode.style.display='none'"></figure>
   <div class="say" data-side="mod"><img src="assets/chars/doctor/E08.webp" alt="박사" loading="lazy"><div class="bub"><span class="nm doctor">박사<span class="side mod">사회</span></span><p>마지막 순서입니다. 양 팀 최종 변론을 듣고, 여러분이 상황 조건을 직접 정해 판정해 봅니다. 같은 기술이라도 누가·어디에·어떻게 쓰느냐에 따라 판정이 달라지는지 보세요.</p></div></div>
 
   <div class="debate">
