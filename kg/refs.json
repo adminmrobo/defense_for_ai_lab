@@ -1,0 +1,441 @@
+[
+ {
+  "id": "ahn2024financial",
+  "type": "article-journal",
+  "title": "금융 분야의 이상탐지 모델 보안을 위한 통계 기반의 적대적 데이터 대응 방안 — 실증적 분석과 시뮬레이션 결과",
+  "author": [
+   {
+    "literal": "안상선"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2024
+    ]
+   ]
+  },
+  "lab": {
+   "work": "lab:work/ahn2024financial",
+   "role": "primary",
+   "supports": [
+    "lab:claim/ks-blocks-9459",
+    "lab:claim/lstm-recall-zero"
+   ],
+   "locs": [],
+   "verified": {
+    "title": true,
+    "author": true,
+    "year": true,
+    "container": true,
+    "pages": true,
+    "doi": true
+   },
+   "checkedBy": "페이지 참고 자료 목록에서 옮김 (외부 대조 안 함)",
+   "checkedSource": "page"
+  },
+  "container-title": "미래사회",
+  "volume": "15",
+  "issue": "3",
+  "page": "147-166",
+  "DOI": "10.22987/jifso.2024.15.3.147"
+ },
+ {
+  "id": "ahn2026patch",
+  "type": "report",
+  "title": "시험지 패치·안내문 초기 실험 기록",
+  "author": [
+   {
+    "literal": "안상선"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2026
+    ]
+   ]
+  },
+  "lab": {
+   "work": "lab:work/ahn2026patch",
+   "role": "primary",
+   "supports": [
+    "lab:claim/patch-ignore-70pct",
+    "lab:claim/notice-claude-stop"
+   ],
+   "locs": [],
+   "verified": {
+    "title": true,
+    "author": true,
+    "year": true,
+    "container": false,
+    "pages": false,
+    "doi": false
+   },
+   "checkedBy": "페이지 참고 자료 목록에서 옮김 (외부 대조 안 함)",
+   "checkedSource": "page"
+  }
+ },
+ {
+  "id": "lee2026yatav",
+  "type": "article-newspaper",
+  "title": "야타브, AI 시험 부정행위 막는 네트워크 기반 보안 아키텍처 개발",
+  "author": [
+   {
+    "literal": "이원지"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2026
+    ]
+   ]
+  },
+  "lab": {
+   "work": "lab:work/lee2026yatav",
+   "role": "primary",
+   "supports": [
+    "lab:claim/yatav-architecture"
+   ],
+   "locs": [],
+   "verified": {
+    "title": true,
+    "author": true,
+    "year": true,
+    "container": true,
+    "pages": false,
+    "doi": false
+   },
+   "checkedBy": "페이지 참고 자료 목록에서 옮김 (외부 대조 안 함)",
+   "checkedSource": "page"
+  },
+  "container-title": "전자신문"
+ },
+ {
+  "id": "goodfellow2015explaining",
+  "type": "paper-conference",
+  "title": "Explaining and Harnessing Adversarial Examples",
+  "author": [
+   {
+    "family": "Goodfellow",
+    "given": "Ian J."
+   },
+   {
+    "family": "Shlens",
+    "given": "Jonathon"
+   },
+   {
+    "family": "Szegedy",
+    "given": "Christian"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2015
+    ]
+   ]
+  },
+  "lab": {
+   "work": "lab:work/goodfellow2015explaining",
+   "role": "background",
+   "supports": [
+    "lab:claim/panda-gibbon"
+   ],
+   "locs": [],
+   "verified": {
+    "title": true,
+    "author": true,
+    "year": true,
+    "container": true,
+    "pages": false,
+    "doi": false
+   },
+   "checkedBy": "페이지 참고 자료 목록에서 옮김 (외부 대조 안 함)",
+   "checkedSource": "page"
+  },
+  "container-title": "ICLR"
+ },
+ {
+  "id": "brown2017adversarial",
+  "type": "report",
+  "title": "Adversarial Patch",
+  "author": [
+   {
+    "family": "Brown",
+    "given": "Tom B."
+   },
+   {
+    "literal": "et al."
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2017
+    ]
+   ]
+  },
+  "lab": {
+   "work": "lab:work/brown2017adversarial",
+   "role": "background",
+   "supports": [
+    "lab:claim/patch-printable"
+   ],
+   "locs": [],
+   "verified": {
+    "title": true,
+    "author": true,
+    "year": true,
+    "container": true,
+    "pages": false,
+    "doi": false
+   },
+   "checkedBy": "페이지 참고 자료 목록에서 옮김 (외부 대조 안 함)",
+   "checkedSource": "page"
+  },
+  "container-title": "arXiv:1712.09665"
+ },
+ {
+  "id": "eykholt2018robust",
+  "type": "paper-conference",
+  "title": "Robust Physical-World Attacks on Deep Learning Visual Classification",
+  "author": [
+   {
+    "family": "Eykholt",
+    "given": "Kevin"
+   },
+   {
+    "literal": "et al."
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2018
+    ]
+   ]
+  },
+  "lab": {
+   "work": "lab:work/eykholt2018robust",
+   "role": "background",
+   "supports": [
+    "lab:claim/stop-sign-stickers"
+   ],
+   "locs": [],
+   "verified": {
+    "title": true,
+    "author": true,
+    "year": true,
+    "container": true,
+    "pages": false,
+    "doi": false
+   },
+   "checkedBy": "페이지 참고 자료 목록에서 옮김 (외부 대조 안 함)",
+   "checkedSource": "page"
+  },
+  "container-title": "CVPR"
+ },
+ {
+  "id": "papernot2016transferability",
+  "type": "report",
+  "title": "Transferability in Machine Learning",
+  "author": [
+   {
+    "family": "Papernot",
+    "given": "Nicolas"
+   },
+   {
+    "family": "McDaniel",
+    "given": "Patrick"
+   },
+   {
+    "family": "Goodfellow",
+    "given": "Ian"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2016
+    ]
+   ]
+  },
+  "lab": {
+   "work": "lab:work/papernot2016transferability",
+   "role": "background",
+   "supports": [
+    "lab:claim/transfer-exists"
+   ],
+   "locs": [],
+   "verified": {
+    "title": true,
+    "author": true,
+    "year": true,
+    "container": true,
+    "pages": false,
+    "doi": false
+   },
+   "checkedBy": "페이지 참고 자료 목록에서 옮김 (외부 대조 안 함)",
+   "checkedSource": "page"
+  },
+  "container-title": "arXiv:1605.07277"
+ },
+ {
+  "id": "dong2023robust",
+  "type": "report",
+  "title": "How Robust is Google's Bard to Adversarial Image Attacks?",
+  "author": [
+   {
+    "family": "Dong",
+    "given": "Yinpeng"
+   },
+   {
+    "literal": "et al."
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2023
+    ]
+   ]
+  },
+  "lab": {
+   "work": "lab:work/dong2023robust",
+   "role": "background",
+   "supports": [
+    "lab:claim/transfer-to-bard"
+   ],
+   "locs": [],
+   "verified": {
+    "title": true,
+    "author": true,
+    "year": true,
+    "container": true,
+    "pages": false,
+    "doi": false
+   },
+   "checkedBy": "페이지 참고 자료 목록에서 옮김 (외부 대조 안 함)",
+   "checkedSource": "page"
+  },
+  "container-title": "arXiv:2309.11751"
+ },
+ {
+  "id": "greshake2023not",
+  "type": "paper-conference",
+  "title": "Not What You've Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection",
+  "author": [
+   {
+    "family": "Greshake",
+    "given": "Kai"
+   },
+   {
+    "literal": "et al."
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2023
+    ]
+   ]
+  },
+  "lab": {
+   "work": "lab:work/greshake2023not",
+   "role": "background",
+   "supports": [
+    "lab:claim/indirect-injection"
+   ],
+   "locs": [],
+   "verified": {
+    "title": true,
+    "author": true,
+    "year": true,
+    "container": true,
+    "pages": false,
+    "doi": false
+   },
+   "checkedBy": "페이지 참고 자료 목록에서 옮김 (외부 대조 안 함)",
+   "checkedSource": "page"
+  },
+  "container-title": "AISec '23"
+ },
+ {
+  "id": "wallace2024instruction",
+  "type": "report",
+  "title": "The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions",
+  "author": [
+   {
+    "family": "Wallace",
+    "given": "Eric"
+   },
+   {
+    "literal": "et al."
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2024
+    ]
+   ]
+  },
+  "lab": {
+   "work": "lab:work/wallace2024instruction",
+   "role": "background",
+   "supports": [
+    "lab:claim/hierarchy-training"
+   ],
+   "locs": [],
+   "verified": {
+    "title": true,
+    "author": true,
+    "year": true,
+    "container": true,
+    "pages": false,
+    "doi": false
+   },
+   "checkedBy": "페이지 참고 자료 목록에서 옮김 (외부 대조 안 함)",
+   "checkedSource": "page"
+  },
+  "container-title": "arXiv:2404.13208"
+ },
+ {
+  "id": "ahn2026bayesian",
+  "type": "webpage",
+  "title": "데이터 사이언티스트를 위한 베이지안 통계학",
+  "author": [
+   {
+    "literal": "안상선"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2026
+    ]
+   ]
+  },
+  "lab": {
+   "work": "lab:work/ahn2026bayesian",
+   "role": "background",
+   "supports": [
+    "lab:claim/bayes-summary"
+   ],
+   "locs": [],
+   "verified": {
+    "title": true,
+    "author": true,
+    "year": true,
+    "container": false,
+    "pages": false,
+    "doi": false
+   },
+   "checkedBy": "페이지 참고 자료 목록에서 옮김 (외부 대조 안 함)",
+   "checkedSource": "page"
+  },
+  "URL": "https://adminmrobo.github.io/bayesian-statistics-for-data-scientists/"
+ }
+]

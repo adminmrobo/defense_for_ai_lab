@@ -1,0 +1,221 @@
+{
+ "registry": "KG_00_registry 0.2",
+ "add": [
+  {
+   "id": "lab:concept/ai-inference-barrier",
+   "type": "Concept",
+   "label_ko": "AI 추론 장벽",
+   "label_en": "AI inference barrier",
+   "pages": [
+    "defense_for_ai_lab/01_ai_barrier_debate"
+   ]
+  },
+  {
+   "id": "lab:concept/bayes-theorem",
+   "type": "Concept",
+   "label_ko": "베이즈 정리",
+   "label_en": "Bayes' theorem",
+   "pages": [
+    "defense_for_ai_lab/01_ai_barrier_debate"
+   ]
+  },
+  {
+   "id": "lab:concept/adversarial-example",
+   "type": "Concept",
+   "label_ko": "적대적 예제",
+   "label_en": "Adversarial example",
+   "pages": [
+    "defense_for_ai_lab/01_ai_barrier_debate"
+   ]
+  },
+  {
+   "id": "lab:method/adversarial-patch",
+   "type": "Method",
+   "label_ko": "적대적 패치",
+   "label_en": "Adversarial patch",
+   "pages": [
+    "defense_for_ai_lab/01_ai_barrier_debate"
+   ]
+  },
+  {
+   "id": "lab:concept/decision-boundary",
+   "type": "Concept",
+   "label_ko": "판단 경계",
+   "label_en": "Decision boundary",
+   "pages": [
+    "defense_for_ai_lab/01_ai_barrier_debate"
+   ]
+  },
+  {
+   "id": "lab:method/fgsm",
+   "type": "Method",
+   "label_ko": "FGSM",
+   "label_en": "Fast Gradient Sign Method",
+   "pages": [
+    "defense_for_ai_lab/01_ai_barrier_debate"
+   ]
+  },
+  {
+   "id": "lab:concept/transferability",
+   "type": "Concept",
+   "label_ko": "전이성",
+   "label_en": "Transferability",
+   "pages": [
+    "defense_for_ai_lab/01_ai_barrier_debate"
+   ]
+  },
+  {
+   "id": "lab:concept/prompt-injection",
+   "type": "Concept",
+   "label_ko": "프롬프트 인젝션",
+   "label_en": "Prompt injection",
+   "pages": [
+    "defense_for_ai_lab/01_ai_barrier_debate"
+   ]
+  },
+  {
+   "id": "lab:concept/instruction-hierarchy",
+   "type": "Concept",
+   "label_ko": "지시 우선순위",
+   "label_en": "Instruction hierarchy",
+   "pages": [
+    "defense_for_ai_lab/01_ai_barrier_debate"
+   ]
+  },
+  {
+   "id": "lab:method/network-exam-gateway",
+   "type": "Method",
+   "label_ko": "네트워크 기반 시험 보안 관문",
+   "label_en": "Network-based exam security gateway",
+   "pages": [
+    "defense_for_ai_lab/01_ai_barrier_debate"
+   ]
+  },
+  {
+   "id": "lab:concept/layered-defense",
+   "type": "Concept",
+   "label_ko": "겹친 장벽",
+   "label_en": "Layered defense",
+   "pages": [
+    "defense_for_ai_lab/01_ai_barrier_debate"
+   ]
+  },
+  {
+   "id": "lab:method/ks-test",
+   "type": "Method",
+   "label_ko": "KS 검정",
+   "label_en": "Kolmogorov–Smirnov test",
+   "pages": [
+    "defense_for_ai_lab/01_ai_barrier_debate"
+   ]
+  },
+  {
+   "id": "lab:concept/defensive-use-of-attack",
+   "type": "Concept",
+   "label_ko": "공격 기법의 방어적 활용",
+   "label_en": "Defensive use of attack techniques",
+   "pages": [
+    "defense_for_ai_lab/01_ai_barrier_debate"
+   ]
+  },
+  {
+   "id": "lab:limitation/transfer-failure",
+   "type": "Limitation",
+   "label_ko": "전이 실패",
+   "label_en": "Transfer failure",
+   "pages": [
+    "defense_for_ai_lab/01_ai_barrier_debate"
+   ]
+  },
+  {
+   "id": "lab:limitation/defense-filters-notice",
+   "type": "Limitation",
+   "label_ko": "안내문까지 거르는 인젝션 방어",
+   "label_en": "Injection defense also filters exam notices",
+   "pages": [
+    "defense_for_ai_lab/01_ai_barrier_debate"
+   ]
+  },
+  {
+   "id": "lab:limitation/encrypted-and-on-device",
+   "type": "Limitation",
+   "label_ko": "암호화 통신·기기 안 AI의 한계",
+   "label_en": "Limits with encrypted traffic and on-device AI",
+   "pages": [
+    "defense_for_ai_lab/01_ai_barrier_debate"
+   ]
+  },
+  {
+   "id": "lab:limitation/small-drop",
+   "type": "Limitation",
+   "label_ko": "조금씩 섞기(스몰 드롭)",
+   "label_en": "Small-drop evasion",
+   "pages": [
+    "defense_for_ai_lab/01_ai_barrier_debate"
+   ]
+  },
+  {
+   "id": "lab:sim/bayes-scale",
+   "type": "Simulation",
+   "label_ko": "실습 1 AI의 저울",
+   "label_en": "Lab 1 Bayes barrier simulator",
+   "pages": [
+    "defense_for_ai_lab/01_ai_barrier_debate"
+   ]
+  },
+  {
+   "id": "lab:sim/boundary-push",
+   "type": "Simulation",
+   "label_ko": "실습 2 경계 밀기와 전이성",
+   "label_en": "Lab 2 boundary push and transferability",
+   "pages": [
+    "defense_for_ai_lab/01_ai_barrier_debate"
+   ]
+  },
+  {
+   "id": "lab:sim/instruction-tug",
+   "type": "Simulation",
+   "label_ko": "실습 3 지시의 줄다리기",
+   "label_en": "Lab 3 instruction tug-of-war",
+   "pages": [
+    "defense_for_ai_lab/01_ai_barrier_debate"
+   ]
+  },
+  {
+   "id": "lab:sim/exam-demo",
+   "type": "Simulation",
+   "label_ko": "실습 4 수능 시험장 AI 방지 시연",
+   "label_en": "Lab 4 exam-room anti-AI demo",
+   "pages": [
+    "defense_for_ai_lab/01_ai_barrier_debate"
+   ]
+  },
+  {
+   "id": "lab:sim/ks-gate",
+   "type": "Simulation",
+   "label_ko": "실습 5 입구의 KS 통계 장벽",
+   "label_en": "Lab 5 KS gate",
+   "pages": [
+    "defense_for_ai_lab/01_ai_barrier_debate"
+   ]
+  },
+  {
+   "id": "lab:sim/verdict",
+   "type": "Simulation",
+   "label_ko": "판정 대시보드",
+   "label_en": "Debate verdict dashboard",
+   "pages": [
+    "defense_for_ai_lab/01_ai_barrier_debate"
+   ]
+  },
+  {
+   "id": "lab:question/is-disruption-bad",
+   "type": "Question",
+   "label_ko": "AI의 추론을 방해하는 것은 나쁜가?",
+   "label_en": "Is disrupting AI inference bad?",
+   "pages": [
+    "defense_for_ai_lab/01_ai_barrier_debate"
+   ]
+  }
+ ]
+}

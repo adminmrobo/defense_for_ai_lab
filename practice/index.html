@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>마지막 장 · 실전 연습장 — 시험 보안 운영실 | AI 추론 장벽 토론</title>
+<meta name="description" content="시험장 장벽 예산 짜기, 판단 경계 밀기, 입구 통계 필터 문턱 정하기를 직접 운영해 보는 시뮬레이터.">
+<meta property="og:title" content="실전 연습장 — 시험 보안 운영실">
+<meta property="og:image" content="../assets/img/og.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Crect width=%2216%22 height=%2216%22 rx=%223%22 fill=%22%231d9b5f%22/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--rule:#dfe3ec;--soft:#f6f7fb;--text:#1f2330;--muted:#5d6475;--env:#1d9b5f;--env-soft:#effaf4;--dec:#2f6fdb;--dec-soft:#eaf1fd;--ok:#1d9b5f;--bad:#d23c3c;--warn:#c7860b;--doc:#7c5cd6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#fff;color:var(--text);font-family:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.75;word-break:keep-all;overflow-x:hidden}
+.wrap{max-width:1060px;margin:0 auto;padding:0 1.1rem}
+header{padding:2rem 0 1rem}
+header a{font-size:13.5px;color:var(--dec)}
+h1{font-size:clamp(24px,4vw,36px);line-height:1.3;margin:.4rem 0}
+.lead{color:var(--muted)}
+.tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin:1.2rem 0 1rem;border-bottom:1px solid var(--rule)}
+.tabs a{padding:.55rem 1rem;text-decoration:none;color:var(--muted);font-weight:700;border-bottom:3px solid transparent;font-size:14.5px}
+.tabs a.on{color:var(--text);border-color:var(--text)}
+.scene{display:none}.scene.on{display:block}
+.situ{background:var(--soft);border-radius:12px;padding:1rem 1.1rem;font-size:15px;margin-bottom:1rem}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1rem}
+.grid2>*{min-width:0}
+.ctl{border-radius:12px;padding:.9rem 1rem;border:1px solid}
+.ctl.env{background:var(--env-soft);border-color:#b6e3c8}.ctl.dec{background:var(--dec-soft);border-color:#b9cff5}
+.ctl h4{font-size:14px;margin-bottom:.4rem}.ctl.env h4{color:var(--env)}.ctl.dec h4{color:var(--dec)}
+.ctl label{display:flex;gap:.5rem;align-items:center;font-size:14px;margin:.35rem 0;flex-wrap:wrap}
+.ctl input[type=range]{width:160px}
+.ctl output{font-weight:700;font-variant-numeric:tabular-nums}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.7rem;margin:1rem 0}
+.card{border:1px solid var(--rule);border-radius:10px;padding:.6rem .8rem}
+.card span{font-size:12px;color:var(--muted);display:block}
+.card b{font-size:20px;font-variant-numeric:tabular-nums}
+.card.good b{color:var(--ok)}.card.bad b{color:var(--bad)}.card.warn b{color:var(--warn)}
+.viz{border:1px solid var(--rule);border-radius:10px;padding:.6rem;background:#fff}
+.viz h5{font-size:13.5px;margin:0 0 .3rem .2rem}
+.viz svg{width:100%;height:auto;display:block}
+.talk{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;margin:1rem 0}
+.talk div{display:flex;gap:.55rem;align-items:flex-start;font-size:14px;background:var(--soft);border-radius:10px;padding:.5rem .7rem}
+.talk img{width:44px;height:44px;border-radius:8px;border:1px solid var(--rule);background:#fff;image-rendering:pixelated;flex-shrink:0}
+.missions{border:2px solid var(--text);border-radius:12px;padding:.9rem 1rem;margin:1rem 0}
+.missions h4{font-size:15px;margin-bottom:.3rem}
+.missions li{list-style:none;font-size:14.5px;margin:.35rem 0;padding-left:1.7rem;position:relative}
+.missions li::before{content:'○';position:absolute;left:0;color:var(--muted);font-weight:700}
+.missions li.pass::before{content:'✔';color:var(--ok)}
+.missions li.pass{color:var(--ok)}
+.back{font-size:14px;margin:.6rem 0 1.4rem}
+.wrapup{border:2px solid var(--doc);border-radius:12px;padding:1rem 1.1rem;background:#faf8ff;margin:2rem 0}
+footer{border-top:1px solid var(--rule);padding:1.6rem 0 3rem;font-size:13.5px;color:var(--muted);margin-top:1.5rem}
+@media (max-width:760px){.grid2,.talk{grid-template-columns:minmax(0,1fr)}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style></head><body>
+<div class="wrap">
+<header>
+  <a href="../index.html">← 본문으로: AI의 추론을 방해하는 것은 나쁜가?</a>
+  <h1>마지막 장 · 실전 연습장 — 시험 보안 운영실</h1>
+  <p class="lead">토론에서 본 장벽을 직접 운영해 봅니다. 초록 상자는 바꿀 수 없는 환경, 파란 상자는 여러분의 결정입니다. 미션은 조작한 뒤에만 판정합니다.</p>
+</header>
+<nav class="tabs" id="tabs"><a href="#exam" data-t="exam">① 시험장: 장벽 예산</a><a href="#edge" data-t="edge">② 사진 AI: 경계 밀기</a><a href="#gate" data-t="gate">③ 금융 입구: 필터 문턱</a></nav>
+
+<!-- 장면 1 -->
+<section class="scene" id="s-exam">
+  <div class="situ"><b>상황.</b> 여러분은 시험 기관의 보안 담당자입니다. 예산은 6입니다. 패치 인쇄(2), 시험지마다 패치 바꾸기(2), 시험 안내문(1), 네트워크 관문(5) 가운데 골라 수험생이 쓸 만한 AI 경로에서 정답이 새어 나갈 확률을 낮춥니다. 차단율은 본문 4장의 교육용 가정값입니다.</div>
+  <div class="grid2">
+    <div class="ctl env"><h4>환경 (시장 조건)</h4>
+      <label>공개 AI(내 기기) 쓰는 비율 <input type="range" id="x-l" min="0" max="80" step="5" value="20"><output id="x-l-o">20%</output></label>
+      <label>암호화 통신 앱 비율 <input type="range" id="x-e" min="0" max="50" step="5" value="10"><output id="x-e-o">10%</output></label>
+      <label><input type="checkbox" id="x-crop"> 공격자가 가리거나 잘라 찍음</label>
+      <p style="font-size:12.5px;color:var(--muted)">나머지는 상용 앱이며 절반은 시험 정책이 있다고 봅니다.</p>
+    </div>
+    <div class="ctl dec"><h4>내 결정 (예산 6)</h4>
+      <label><input type="checkbox" id="x-patch"> 패치 인쇄 (2)</label>
+      <label><input type="checkbox" id="x-rot"> 시험지마다 패치 바꾸기 (2, 패치가 있어야 효과)</label>
+      <label><input type="checkbox" id="x-notice"> 시험 안내문 (1)</label>
+      <label><input type="checkbox" id="x-gate"> 네트워크 관문 (5)</label>
+    </div>
+  </div>
+  <div class="cards"><div class="card" id="xc1"><span>가중 평균 유출</span><b>-</b></div><div class="card" id="xc2"><span>가장 약한 경로</span><b>-</b></div><div class="card" id="xc3"><span>쓴 예산</span><b>-</b></div><div class="card" id="xc4"><span>예산 안 최적과 차이</span><b>-</b></div></div>
+  <div class="grid2"><div class="viz"><h5>경로별 유출 확률</h5><svg id="xg1" viewBox="0 0 460 230"></svg></div><div class="viz"><h5>모든 조합: 예산 대 가중 유출 (● 내 선택, ★ 예산 안 최적)</h5><svg id="xg2" viewBox="0 0 460 230"></svg></div></div>
+  <div class="talk" id="xt"></div>
+  <div class="missions"><h4>미션</h4><ul id="xm"><li data-m="1">예산 6 안에서 가중 평균 유출이 가장 낮은 조합 찾기 (최적과 0.5%p 이내)</li><li data-m="2">함정 관찰: 잘라 찍기를 켜고, 같은 조합의 유출이 늘어나는 것 확인하기</li><li data-m="3">조건 바꾸기: 공개 AI 비율을 50% 이상으로 올려도 최적 조합 다시 찾기</li></ul></div>
+  <p class="back">배운 곳 다시 보기: <a href="../index.html#ch4">4장 시험장 시연</a> · <a href="../index.html#ch3">3장 인젝션</a></p>
+</section>
+
+<!-- 장면 2 -->
+<section class="scene" id="s-edge">
+  <div class="situ"><b>상황.</b> 사진을 읽는 AI 셋(A·B·C)이 있습니다. 그림 x = (2, 1)을 경계 너머로 밀어 판단을 바꾸려면 얼마나 밀어야 할까요? 미는 양 ε이 클수록 사람 눈에 띕니다. 본문 2장의 모형과 같습니다.</div>
+  <div class="grid2">
+    <div class="ctl env"><h4>환경</h4>
+      <label>노릴 AI <select id="y-t"><option value="A">AI-A</option><option value="B">AI-B</option><option value="C">AI-C</option></select></label>
+      <p style="font-size:13px">A: 2x₁ + x₂ − 3 · B: x₁ + 2x₂ − 2.5 · C: 2x₁ − 2x₂ − 1 (점수 &gt; 0 이면 ③)</p>
+    </div>
+    <div class="ctl dec"><h4>내 결정</h4>
+      <label>조각을 맞춘 대상 <select id="y-s"><option value="A">AI-A에 맞춤</option><option value="ens">A+C 묶음에 맞춤</option></select></label>
+      <label>미는 양 ε <input type="range" id="y-e" min="0" max="2" step="0.01" value="0"><output id="y-e-o">0.00</output></label>
+    </div>
+  </div>
+  <div class="cards"><div class="card" id="yc1"><span>노린 AI 점수</span><b>-</b></div><div class="card" id="yc2"><span>뒤집힌 AI</span><b>-</b></div><div class="card" id="yc3"><span>최소로 필요한 ε</span><b>-</b></div><div class="card" id="yc4"><span>눈에 띄는 정도</span><b>-</b></div></div>
+  <div class="grid2"><div class="viz"><h5>세 AI의 점수 (0 아래면 ⑤로 뒤집힘)</h5><svg id="yg1" viewBox="0 0 460 230"></svg></div><div class="viz"><h5>ε에 따른 노린 AI의 점수 (● 지금)</h5><svg id="yg2" viewBox="0 0 460 230"></svg></div></div>
+  <div class="talk" id="yt"></div>
+  <div class="missions"><h4>미션</h4><ul id="ym"><li data-m="1">AI-A용 조각으로 AI-A를 뒤집는 가장 작은 ε 찾기 (±0.03)</li><li data-m="2">함정 관찰: AI-A용 조각으로 AI-C를 노려 ε를 1.5 이상 올려도 안 뒤집히는 것 확인</li><li data-m="3">조건 바꾸기: 묶음 조각으로 A와 C를 함께 뒤집는 가장 작은 ε 찾기 (±0.03)</li></ul></div>
+  <p class="back">배운 곳 다시 보기: <a href="../index.html#ch2">2장 적대적 예제</a> · <a href="../index.html#ch1">1장 베이즈</a></p>
+</section>
+
+<!-- 장면 3 -->
+<section class="scene" id="s-gate">
+  <div class="situ"><b>상황.</b> 금융 이상거래 탐지 AI의 입구에 KS 통계 필터를 둡니다. 적대적 거래가 섞인 묶음은 막고, 정상 묶음은 통과시켜야 합니다. 놓친 공격 묶음 하나의 손해는 10, 정상 묶음을 잘못 막은 손해는 1로 둡니다(예시값).</div>
+  <div class="grid2">
+    <div class="ctl env"><h4>환경</h4>
+      <label>섞인 적대적 비율 <input type="range" id="z-mix" min="0.01" max="0.2" step="0.001" value="0.081"><output id="z-mix-o">8.1%</output></label>
+      <label>공격 세기 <input type="range" id="z-sh" min="1" max="4" step="0.5" value="3"><output id="z-sh-o">3.0</output></label>
+    </div>
+    <div class="ctl dec"><h4>내 결정</h4>
+      <label>유의수준(문턱) <select id="z-a"><option value="1.628">1% (엄격하게 통과)</option><option value="1.358" selected>5%</option><option value="1.224">10% (쉽게 막음)</option></select></label>
+      <label>묶음 크기 <input type="range" id="z-n" min="200" max="4000" step="200" value="400"><output id="z-n-o">400</output></label>
+    </div>
+  </div>
+  <div class="cards"><div class="card" id="zc1"><span>공격 묶음 차단율</span><b>-</b></div><div class="card" id="zc2"><span>정상 묶음 오차단율</span><b>-</b></div><div class="card" id="zc3"><span>손해 합계(100+100묶음)</span><b>-</b></div><div class="card" id="zc4"><span>기준값</span><b>-</b></div></div>
+  <div class="grid2"><div class="viz"><h5>차단율과 오차단율</h5><svg id="zg1" viewBox="0 0 460 230"></svg></div><div class="viz"><h5>묶음 크기에 따른 차단율 (● 지금)</h5><svg id="zg2" viewBox="0 0 460 230"></svg></div></div>
+  <div class="talk" id="zt"></div>
+  <div class="missions"><h4>미션</h4><ul id="zm"><li data-m="1">차단율 90% 이상, 오차단율 6% 이하 만들기</li><li data-m="2">함정 관찰: 섞인 비율을 2% 이하로 낮춰 차단율이 30% 아래로 떨어지는 것 확인(스몰 드롭)</li><li data-m="3">조건 바꾸기: 공격 세기 2.0 이하에서도 차단율 90% 이상 지키기</li></ul></div>
+  <p class="back">배운 곳 다시 보기: <a href="../index.html#ch5">5장 방어로 쓰기</a></p>
+</section>
+
+<div class="wrapup"><b>세 장면이 함께 묻는 질문.</b> 장벽은 늘 비용(예산, 눈에 띄는 정도, 정상 사용자 오차단)과 바꿔 얻습니다. 가장 약한 경로가 어디인지, 공격자가 어떻게 피할지(잘라 찍기, 다른 AI, 조금씩 섞기)를 함께 보지 않으면 평균 숫자에 속습니다. 모형의 차단율·손해는 교육용 예시이며, 실제 시험·금융 보안 운영의 권고가 아닙니다.</div>
+<footer>글 · 안상선 (<a href="https://adminmrobo.github.io/who_am_i/who_am_i.html" target="_blank" rel="noopener">소개</a>) · (주)M-Robo 대표</footer>
+</div>
+<script>
+(function(){'use strict';
+var $=function(i){return document.getElementById(i)};var CH='../assets/chars/';
+function pct(v,d){return (v*100).toFixed(d==null?1:d)+'%'}
+function card(id,v,c){var e=$(id);e.querySelector('b').textContent=v;e.className='card'+(c?' '+c:'')}
+function talk(id,L){$(id).innerHTML=L.map(function(l){return '<div><img src="'+CH+l[0]+'/E'+l[1]+'.webp" alt=""><span><b>'+l[2]+':</b> '+l[3]+'</span></div>'}).join('')}
+function pass(id,m,ok){if(ok)$(id).querySelector('[data-m="'+m+'"]').classList.add('pass')}
+function bars(svg,items,max){var h='',n=items.length,bh=Math.min(34,190/n-8);items.forEach(function(it,i){var y=14+i*(200/n),w=(300)*Math.max(0,it[1])/max;
+  h+='<text x="128" y="'+(y+bh/2+4)+'" text-anchor="end" font-size="12" fill="#1f2330">'+it[0]+'</text><rect x="136" y="'+y+'" width="300" height="'+bh+'" fill="#f6f7fb"/><rect x="136" y="'+y+'" width="'+w+'" height="'+bh+'" fill="'+it[2]+'"/><text x="'+(140+w)+'" y="'+(y+bh/2+4)+'" font-size="12" font-weight="700">'+it[3]+'</text>'});$(svg).innerHTML=h}
+function axes(xl,yl){return '<line x1="40" y1="200" x2="450" y2="200" stroke="#dfe3ec"/><line x1="40" y1="10" x2="40" y2="200" stroke="#dfe3ec"/><text x="450" y="222" font-size="11" text-anchor="end" fill="#5d6475">'+xl+'</text><text x="44" y="16" font-size="11" fill="#5d6475">'+yl+'</text>'}
+
+/* 탭: 주소 끝 #탭이름 */
+var touched={exam:false,edge:false,gate:false};
+function tab(t){if(!$('s-'+t))t='exam';document.querySelectorAll('.scene').forEach(function(s){s.classList.toggle('on',s.id==='s-'+t)});document.querySelectorAll('#tabs a').forEach(function(a){a.classList.toggle('on',a.dataset.t===t)})}
+window.addEventListener('hashchange',function(){tab(location.hash.slice(1))});tab(location.hash.slice(1)||'exam');
+
+/* ===== 장면 1 ===== */
+var ATK=[{k:'L',n:'공개 AI',p:0.70,pr:0.80,nt:0,g:0},{k:'CP',n:'상용(정책 있음)',p:0.30,pr:0.40,nt:0.95,g:0.80},{k:'CN',n:'상용(정책 없음)',p:0.30,pr:0.40,nt:0,g:0.80},{k:'E',n:'암호화 앱',p:0.30,pr:0.40,nt:0,g:0}];
+var COST={patch:2,rot:2,notice:1,gate:5};
+function leak(a,o){var b=[];if(o.patch)b.push((o.rot?a.pr:a.p)*(o.crop?0.5:1));if(o.notice)b.push(a.nt*(o.crop?0.5:1));if(o.gate)b.push(a.g*(o.crop?0.7:1));return b.reduce(function(m,v){return m*(1-v)},1)}
+function shares(){var l=+$('x-l').value/100,e=+$('x-e').value/100,r=Math.max(0,1-l-e);return [l,r/2,r/2,e]}
+function evalX(o,sh){var v=ATK.map(function(a){return leak(a,o)}),w=v.reduce(function(s,x,i){return s+x*sh[i]},0);return {v:v,w:w}}
+function cost(o){return (o.patch?2:0)+(o.patch&&o.rot?2:0)+(o.rot&&!o.patch?2:0)+(o.notice?1:0)+(o.gate?5:0)}
+function combos(crop){var out=[];for(var m=0;m<16;m++){var o={patch:!!(m&1),rot:!!(m&2),notice:!!(m&4),gate:!!(m&8),crop:crop};out.push(o)}return out}
+function best(sh,crop){var bb=null;combos(crop).forEach(function(o){if(cost(o)>6)return;var r=evalX(o,sh);if(!bb||r.w<bb.w-1e-12||(Math.abs(r.w-bb.w)<1e-12&&cost(o)<cost(bb.o)))bb={o:o,w:r.w}});return bb}
+var prevCropOff=null;
+function drawX(){
+  $('x-l-o').textContent=$('x-l').value+'%';$('x-e-o').textContent=$('x-e').value+'%';
+  var crop=$('x-crop').checked,o={patch:$('x-patch').checked,rot:$('x-rot').checked,notice:$('x-notice').checked,gate:$('x-gate').checked,crop:crop};
+  var sh=shares(),r=evalX(o,sh),c=cost(o),bb=best(sh,crop);
+  var wi=0;r.v.forEach(function(x,i){if(sh[i]>0&&(sh[wi]===0||x>r.v[wi]))wi=i});
+  card('xc1',pct(r.w),r.w>0.3?'bad':r.w>0.1?'warn':'good');card('xc2',ATK[wi].n+' '+pct(r.v[wi],0),r.v[wi]>0.3?'bad':'warn');
+  card('xc3',c+' / 6',c>6?'bad':'');var gap=r.w-bb.w;card('xc4',c>6?'예산 초과':(gap<=0.005?'최적!':'+'+(gap*100).toFixed(1)+'%p'),c>6?'bad':gap<=0.005?'good':'warn');
+  bars('xg1',ATK.map(function(a,i){return [a.n+' ('+Math.round(sh[i]*100)+'%)',r.v[i],r.v[i]>0.3?'#d23c3c':r.v[i]>0.05?'#c7860b':'#1d9b5f',pct(r.v[i],1)]}),1);
+  // 산점도
+  var h=axes('예산 →','가중 유출'),mx=11;
+  h+='<line x1="'+(40+410*6/mx)+'" y1="10" x2="'+(40+410*6/mx)+'" y2="200" stroke="#d23c3c" stroke-dasharray="4 3"/><text x="'+(44+410*6/mx)+'" y="24" font-size="11" fill="#d23c3c">예산 6</text>';
+  combos(crop).forEach(function(q){var e=evalX(q,sh),cx=40+410*cost(q)/mx,cy=200-190*e.w;h+='<circle cx="'+cx+'" cy="'+cy+'" r="4" fill="#aab0bf"/>'});
+  var bx=40+410*cost(bb.o)/mx,by=200-190*bb.w;h+='<text x="'+bx+'" y="'+(by+5)+'" text-anchor="middle" font-size="18" fill="#c7860b">★</text>';
+  h+='<circle cx="'+(40+410*c/mx)+'" cy="'+(200-190*r.w)+'" r="7" fill="none" stroke="#2f6fdb" stroke-width="3"/>';
+  for(var t=0;t<=10;t+=2)h+='<text x="'+(40+410*t/mx)+'" y="214" font-size="10" text-anchor="middle" fill="#5d6475">'+t+'</text>';
+  $('xg2').innerHTML=h;
+  var opt=c<=6&&gap<=0.005;
+  talk('xt',[['doctor',opt?'16':'09','박사',opt?'예산 안에서 가장 낮은 조합입니다. 그래도 가장 약한 경로('+ATK[wi].n+')를 확인하세요.':'조합을 바꿔 ★에 가까이 가 보세요. 평균만 보지 말고요.'],
+    ['haru','07','하루','가중 평균 유출 '+pct(r.w)+', 예산 '+c+'를 썼어요.'],
+    ['fruitfly','09','초파리',crop?'잘라 찍기를 켰더니 패치·안내문이 반쯤 힘을 잃었어요.':(o.gate?'관문은 비싼데 공개 AI와 암호화 앱엔 안 닿아요. 그 값어치가 있나요?':'잘라 찍기를 켜 보세요. 이 숫자가 버틸까요?')],
+    ['jupanbot',o.gate?'19':'12','주판봇',o.gate?'관문은 제일 비싸니까 제일 좋은 거죠!':'장벽은 많을수록 무조건 좋아요!']]);
+  if(touched.exam){
+    pass('xm',1,opt&&!crop);
+    if(!crop)prevCropOff={key:JSON.stringify([o.patch,o.rot,o.notice,o.gate]),w:r.w};
+    else if(prevCropOff&&prevCropOff.key===JSON.stringify([o.patch,o.rot,o.notice,o.gate])&&r.w>prevCropOff.w+1e-9&&(o.patch||o.notice))pass('xm',2,true);
+    pass('xm',3,opt&&sh[0]>=0.5);
+  }
+}
+['x-l','x-e','x-crop','x-patch','x-rot','x-notice','x-gate'].forEach(function(id){$(id).addEventListener('input',function(){touched.exam=true;drawX()})});
+drawX();
+
+/* ===== 장면 2 ===== */
+var M={A:{w:[2,1],b:-3},B:{w:[1,2],b:-2.5},C:{w:[2,-2],b:-1}};
+function sg(v){return v>0?1:v<0?-1:0}
+function dir(s){var a=M.A.w.map(sg);if(s==='A')return a.map(function(v){return -v});var c=M.C.w.map(sg);return [sg(a[0]+c[0]),sg(a[1]+c[1])].map(function(v){return -v})}
+function sc(k,e,s){var d=dir(s),p=[2+e*d[0],1+e*d[1]];return M[k].w[0]*p[0]+M[k].w[1]*p[1]+M[k].b}
+function minEps(k,s){var d=dir(s),dd=M[k].w[0]*d[0]+M[k].w[1]*d[1],s0=sc(k,0,s);return dd<0?s0/(-dd):Infinity}
+function drawY(){
+  var t=$('y-t').value,s=$('y-s').value,e=+$('y-e').value;$('y-e-o').textContent=e.toFixed(2);
+  var v={A:sc('A',e,s),B:sc('B',e,s),C:sc('C',e,s)},me=minEps(t,s);
+  var fl=['A','B','C'].filter(function(k){return v[k]<=0});
+  card('yc1',v[t].toFixed(2),v[t]<=0?'good':'');card('yc2',fl.length?fl.join('·'):'없음','');card('yc3',isFinite(me)?me.toFixed(2):'불가능',isFinite(me)?'':'bad');
+  card('yc4',e<=0.3?'거의 안 보임':e<=0.7?'조금':e<=1.1?'눈에 띔':'크게',e<=0.3?'good':e<=0.7?'warn':'bad');
+  var h='<line x1="40" y1="115" x2="450" y2="115" stroke="#1f2330"/>';['A','B','C'].forEach(function(k,i){var y=30+i*60,val=v[k],x0=245,w=Math.max(-200,Math.min(200,val*60));
+    h+='<text x="34" y="'+(y+18)+'" text-anchor="end" font-size="12">AI-'+k+'</text><rect x="'+(w<0?x0+w:x0)+'" y="'+y+'" width="'+Math.abs(w)+'" height="28" fill="'+(val>0?'#1d9b5f':'#d23c3c')+'"/><text x="'+(x0+w+(w<0?-4:4))+'" y="'+(y+18)+'" font-size="12" font-weight="700" text-anchor="'+(w<0?'end':'start')+'">'+val.toFixed(2)+'</text>'});
+  h+='<line x1="245" y1="20" x2="245" y2="210" stroke="#5d6475" stroke-dasharray="3 3"/><text x="249" y="222" font-size="10" fill="#5d6475">0 (경계)</text>';$('yg1').innerHTML=h;
+  var g=axes('ε →','점수'),y0=105;g+='<line x1="40" y1="'+y0+'" x2="450" y2="'+y0+'" stroke="#d23c3c" stroke-dasharray="4 3"/>';
+  var pts=[];for(var i=0;i<=40;i++){var ee=i*0.05;pts.push((40+410*ee/2)+','+(y0-40*sc(t,ee,s)))}g+='<polyline points="'+pts.join(' ')+'" fill="none" stroke="#2f6fdb" stroke-width="2.5"/>';
+  g+='<circle cx="'+(40+410*e/2)+'" cy="'+(y0-40*v[t])+'" r="6" fill="#e0662f"/>';for(var q=0;q<=2;q+=0.5)g+='<text x="'+(40+410*q/2)+'" y="214" font-size="10" text-anchor="middle" fill="#5d6475">'+q+'</text>';
+  $('yg2').innerHTML=g;
+  talk('yt',[['doctor',v[t]<=0?'10':'09','박사',v[t]<=0?'뒤집혔습니다. 그런데 사람 눈에도 띄나요?':'노린 AI의 점수가 0 아래로 가야 판단이 바뀝니다.'],['haru','07','하루','AI-'+t+' 점수 '+v[t].toFixed(2)+', 최소 ε '+(isFinite(me)?me.toFixed(2):'없음')+'이에요.'],
+    ['fruitfly',isFinite(me)?'09':'16','초파리',isFinite(me)?'다른 AI는요? 하나만 뒤집으면 시험장에선 부족해요.':'방향이 경계와 나란하면 아무리 밀어도 소용없죠. 전이 실패예요.'],['jupanbot','19','주판봇','ε를 최대로 올리면 다 뒤집혀요!']]);
+  if(touched.edge){pass('ym',1,s==='A'&&t==='A'&&v.A<=0&&Math.abs(e-minEps('A','A'))<=0.03);pass('ym',2,s==='A'&&t==='C'&&e>=1.5&&v.C>0);
+    pass('ym',3,s==='ens'&&v.A<=0&&v.C<=0&&Math.abs(e-Math.max(minEps('A','ens'),minEps('C','ens')))<=0.03)}
+}
+['y-t','y-s','y-e'].forEach(function(id){$(id).addEventListener('input',function(){touched.edge=true;drawY()})});drawY();
+
+/* ===== 장면 3 ===== */
+var seed=1;function rnd(){seed|=0;seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}
+function nrm(){var u=1-rnd(),v=rnd();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)}
+function batch(n,mix,sh){var a=[],k=Math.round(n*mix);for(var i=0;i<n;i++)a.push(i<k?sh+nrm():nrm());return a.sort(function(p,q){return p-q})}
+function D(a,b){var i=0,j=0,n=a.length,m=b.length,d=0;while(i<n&&j<m){var v=Math.min(a[i],b[j]);while(i<n&&a[i]<=v)i++;while(j<m&&b[j]<=v)j++;d=Math.max(d,Math.abs(i/n-j/m))}return d}
+function trial(n,mix,sh,ca,N){seed=12345;var c=ca*Math.sqrt(2/n),hit=0,fa=0;for(var i=0;i<N;i++){var a=batch(n,0,0);if(D(a,batch(n,mix,sh))>c)hit++;if(D(a,batch(n,0,0))>c)fa++}return {hit:hit/N,fa:fa/N,c:c}}
+function drawZ(){
+  var mix=+$('z-mix').value,sh=+$('z-sh').value,ca=+$('z-a').value,n=+$('z-n').value;
+  $('z-mix-o').textContent=(mix*100).toFixed(1)+'%';$('z-sh-o').textContent=sh.toFixed(1);$('z-n-o').textContent=n;
+  var r=trial(n,mix,sh,ca,100),loss=Math.round((1-r.hit)*100*10+r.fa*100);
+  card('zc1',pct(r.hit,0),r.hit>=0.9?'good':r.hit>=0.5?'warn':'bad');card('zc2',pct(r.fa,0),r.fa<=0.06?'good':'bad');card('zc3',loss,'');card('zc4',r.c.toFixed(3),'');
+  bars('zg1',[['공격 묶음 차단',r.hit,'#1d9b5f',pct(r.hit,0)],['정상 묶음 오차단',r.fa,'#d23c3c',pct(r.fa,0)]],1);
+  var g=axes('묶음 크기 →','차단율'),pts=[];for(var k=200;k<=4000;k+=400){var q=trial(k,mix,sh,ca,30);pts.push([40+410*(k-200)/3800,200-190*q.hit])}
+  g+='<polyline points="'+pts.map(function(p){return p.join(',')}).join(' ')+'" fill="none" stroke="#2f6fdb" stroke-width="2.5"/><line x1="40" y1="'+(200-190*0.9)+'" x2="450" y2="'+(200-190*0.9)+'" stroke="#1d9b5f" stroke-dasharray="4 3"/><text x="446" y="'+(196-190*0.9)+'" font-size="10" text-anchor="end" fill="#1d9b5f">90%</text>';
+  g+='<circle cx="'+(40+410*(n-200)/3800)+'" cy="'+(200-190*r.hit)+'" r="6" fill="#e0662f"/>';$('zg2').innerHTML=g;
+  talk('zt',[['doctor',r.hit>=0.9&&r.fa<=0.06?'16':'09','박사',r.hit>=0.9&&r.fa<=0.06?'공격은 거의 막고 정상은 거의 통과시킵니다. 이 문턱이 바뀌면 어떻게 될까요?':'차단율과 오차단율을 같이 보세요. 하나만 좋아지는 건 쉽습니다.'],
+    ['haru','07','하루','100묶음 중 '+Math.round(r.hit*100)+'묶음 차단, 정상 '+Math.round(r.fa*100)+'묶음 오차단, 손해 '+loss+'예요.'],
+    ['fruitfly','09','초파리',mix<=0.02?'조금씩 섞으니 거의 못 잡네요. 사기꾼은 이쪽을 택할 거예요.':'섞는 비율을 1~2%로 줄이면 어떨까요?'],['jupanbot','12','주판봇','문턱을 10%로 하면 다 막혀요!']]);
+  if(touched.gate){pass('zm',1,r.hit>=0.9&&r.fa<=0.06);pass('zm',2,mix<=0.02&&r.hit<0.3);pass('zm',3,sh<=2&&r.hit>=0.9)}
+}
+var zt;['z-mix','z-sh','z-a','z-n'].forEach(function(id){$(id).addEventListener('input',function(){touched.gate=true;clearTimeout(zt);zt=setTimeout(drawZ,120)})});drawZ();
+window.PRACTICE={best:best,evalX:evalX,cost:cost,minEps:minEps,trial:trial,shares:shares};
+})();
+</script>
+</body></html>
