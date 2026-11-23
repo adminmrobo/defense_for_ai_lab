@@ -107,7 +107,7 @@ function score(m,p){return m.w[0]*p[0]+m.w[1]*p[1]+m.b}
     for(var j=-1;j<=3;j++){x.beginPath();x.moveTo(sx(X0),sy(j));x.lineTo(sx(X1),sy(j));x.stroke()}
     x.fillStyle=C.muted;x.font='11px '+FONT;x.textAlign='center';
     for(i=0;i<=4;i++)x.fillText(i,sx(i),sy(Y0)+14);x.textAlign='right';for(j=-1;j<=3;j++)x.fillText(j,sx(X0)-6,sy(j));
-    x.textAlign='left';x.fillText('그림에서 뽑은 숫자 x₁ →',sx(2.6),sy(Y0)+26>H-4?H-6:sy(Y0)+26);
+    x.textAlign='left';x.fillText('x₁ 선의 기울기 점수 →',sx(2.6),sy(Y0)+26>H-4?H-6:sy(Y0)+26);
     // A의 ③ 영역 옅게
     x.fillStyle='rgba(47,111,219,.06)';x.beginPath();
     for(var a=0;a<=60;a++){var xx=X0+a*(X1-X0)/60,yy=(-M2.A.b-M2.A.w[0]*xx)/M2.A.w[1];yy=Math.max(Y0,Math.min(Y1,yy));if(a===0)x.moveTo(sx(xx),sy(yy));else x.lineTo(sx(xx),sy(yy))}
@@ -122,7 +122,7 @@ function score(m,p){return m.w[0]*p[0]+m.w[1]*p[1]+m.b}
     x.fillStyle=C.pro;x.beginPath();x.arc(sx(p0[0]),sy(p0[1]),7,0,7);x.fill();
     if(eps>0){x.fillStyle=C.con;x.beginPath();x.arc(sx(p1[0]),sy(p1[1]),7,0,7);x.fill()}
     x.fillStyle=C.text;x.font='12px '+FONT;x.textAlign='left';x.fillText('원래 그림',sx(p0[0])+10,sy(p0[1])-12);if(eps>0)x.fillText('패치 붙인 그림',sx(p1[0])+10,sy(p1[1])+14);
-    x.fillStyle=C.pro;x.font='bold 13px '+FONT;x.fillText('③ 쪽',sx(3.4),sy(2.7));x.fillStyle=C.con;x.fillText('⑤ 쪽',sx(0.2),sy(-0.6));
+    x.save();x.translate(12,sy(1.6));x.rotate(-Math.PI/2);x.fillStyle=C.muted;x.font='11px '+FONT;x.textAlign='center';x.fillText('x₂ 배경 무늬 점수 →',0,0);x.restore();x.textAlign='left';x.fillStyle=C.pro;x.font='bold 13px '+FONT;x.fillText('③ 쪽',sx(3.5),sy(1.6));x.fillStyle=C.con;x.fillText('⑤ 쪽',sx(0.2),sy(-0.6));
     // KPI
     var res={};['A','B','C'].forEach(function(k,i){var s=score(M2[k],p1);res[k]=s;setKpi(['k2a','k2b','k2c'][i],(s>0?'③':'⑤')+' ('+s.toFixed(2)+')',s>0?'good':'bad')});
     var vis=eps<=0.3?'거의 안 보임':eps<=0.7?'조금 보임':eps<=1.1?'눈에 띔':'크게 보임';setKpi('k2d',vis,eps<=0.3?'good':eps<=0.7?'warn':'bad');
