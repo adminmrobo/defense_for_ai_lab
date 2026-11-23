@@ -21,6 +21,11 @@ def say(m):
 
 
 body = re.sub(r'<say([^>]*)>(.*?)</say>', say, rd('src/body.html'), flags=re.S)
+IG = dict(re.findall(r'<!--IG:(\w+)-->(.*?)<!--/IG-->', rd('src/infographics.html'), flags=re.S))
+body = re.sub(r'<ig k="(\w+)"></ig>', lambda m: IG[m.group(1)].strip(), body)
+body = re.sub(r'<scene n="(\d)" alt="([^"]*)"></scene>', lambda m: '' if not os.path.exists(os.path.join(H, 'assets/scenes/sc_%s.webp' % m.group(1))) else (
+    '<figure class="scene-fig" id="scene-%s"><img src="assets/scenes/sc_%s.webp" width="1200" height="800" alt="%s" loading="lazy" '
+    'onerror="this.parentNode.style.display=\'none\'"></figure>' % (m.group(1), m.group(1), m.group(2))), body)
 title = 'AI의 추론을 방해하는 것은 나쁜가? — AI 추론 장벽 찬반 토론 | 초파리 연구실'
 desc = '시험지 패치·숨은 지시·네트워크 관문으로 AI 추론에 장벽을 세우는 원리를 베이즈 정리와 적대적 예제로 풀고, 공격인지 방어인지 찬반 토론으로 따져 보는 인터랙티브 해설.'
 head = f'''<!DOCTYPE html>

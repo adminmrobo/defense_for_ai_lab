@@ -47,12 +47,13 @@ GitHub Pages: **Settings → Pages → Branch: `main` / root**.
 ```
 index.html              본문 (빌드 결과, 지식 색인·꾸러미 포함)
 practice/index.html     마지막 장 · 실전 연습장
-src/                    본문 조각 (body.html · style.css · app.js)
+src/                    본문 조각 (body.html · style.css · app.js · infographics.html 인포그래픽 13장)
 build.py                src → index.html (<say> 대사 줄임 태그 변환)
 make.sh                 build + 지식 색인·꾸러미 붙이기 (ai-lab-retrofit 도구 필요)
 kg/                     kg.json · refs.json · meta.json · check_report.md · retrofit_log.md · registry_additions.json
 assets/chars/           캐릭터 표정 (fruitfly-lab-expressions에서 192px로 줄임)
 assets/img/             임시 표지(480×270 → ×4 무손실), og, 썸네일
+assets/scenes/          장마다 픽셀 장면 그림 sc_0~sc_6.webp (받으면 넣고 make.sh 재실행)
 prompts/IMAGE_PROMPTS.md  정식 표지·장면 그림 지시문 (16비트 픽셀아트)
 docs/WORK_NOTES.md      작업 메모 (독자 진단, 사실 카드, 검산, 교수법 자가 채점)
 ```
