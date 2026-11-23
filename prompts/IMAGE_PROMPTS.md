@@ -53,3 +53,4 @@ Cheerful comedy mood, crisp pixels, thick dark outlines, dithered shading, no te
 - Genspark로 표지 1장과 장면 7장을 받았다. 모두 원래 격자(표지 480×270, 장면 300×200)를 정확히 4배로 키운 그림이었다.
 - 표지: 원래 격자에서 NEAREST ×4 → 1920×1080 무손실 WebP. og(480×252 ×3), 썸네일(300×200 ×2)도 원래 격자에서 잘랐다.
 - 장면: 원래 격자 300×200 무손실 WebP로 저장하고 화면에서 `image-rendering:pixelated`로 키운다(×4 파일과 화면이 같고, 7장 합계 약 526KB로 600KB 안).
+- 아웃트로 그림(outro.webp, 1248×832): 사용자가 따로 보낸 그림. 정확한 픽셀 격자가 없는(경계가 부드러운) 그림이라 격자 확대 대신 원래 크기 그대로 WebP 품질 90(167KB)으로 저장했다. 6장 사회자 정리 아래에 둔다. 장면 그림 합계는 약 690KB.

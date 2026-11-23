@@ -288,3 +288,4 @@ figure.scene-fig img{display:block;width:100%;height:auto;border-radius:12px;bor
 }
 @media (max-width:640px){.ig-table{min-width:0;font-size:12px;border-spacing:3px}.ig-table td,.ig-table th{padding:.3rem .25rem}.ig-table small{font-size:10.5px}}
 @media (max-width:640px){.ig-flow .ig-arr{transform:rotate(90deg)}}
+figure.outro-fig img{image-rendering:auto;border:0;max-width:820px;margin:0 auto}
